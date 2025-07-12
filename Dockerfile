@@ -37,3 +37,9 @@ ENV PYTHONUNBUFFERED=1
 
 # Start both services: Uvicorn and Nginx
 CMD ["/entrypoint.sh"]
+
+WORKDIR /app
+COPY frontend/ /app/ 
+RUN rm -f /app/.env
+RUN touch /app/.env
+RUN echo "${FRONTEND_ENV}" | tr ';' '\n' >/app/.env
