@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: emergent-gen
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    envVars:
+      - key: MONGO_URL
+        sync: false
+      - key: DB_NAME
+        sync: false
+    buildCommand: ""
+    startCommand: ""
